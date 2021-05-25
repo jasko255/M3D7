@@ -48,9 +48,20 @@
   <body>
     <!-- Ex1) Get and display, using an asynchronous pattern, the users from: https://jsonplaceholder.typicode.com/users  -->
 
-  
+    
 
     <div class="container">
+        <div class="row my-4">
+          <div class="col d-flex justify-content-center">
+            <input type="text" id="filterInput" class="mr-2">
+            <select name="filterOption" id="filterOption">
+              <option value="name">Name</option>
+              <option value="username">Username</option>
+              <option value="email">Email</option>
+            </select>
+          </div>
+        </div>
+      
         <div class="row" id="cards">
 
         </div>
