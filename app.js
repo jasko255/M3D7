@@ -49,3 +49,9 @@ window.onload = function() {
       filter(option, input.value)
     })
 }
+
+const extractNames = () =>  console.log(fetchedData.map(el => el.name).join(', '))
+// Victor Plains, Suite 879, Wisokyburgh (90566-7771)
+
+const adresses = () => fetchedData.map(el=> `${el.address.street}, ${el.address.suite}, ${el.address.city} (${el.address.zipcode})` )
+
