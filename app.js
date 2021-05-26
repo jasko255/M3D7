@@ -70,7 +70,9 @@ window.onload = function() {
       fetchedData = data
       lastData = data
       display()
-    })
+      initMap()
+      let coordinates = fetchedData.map(u => u.address.geo)
+      coordinates.forEach(coord => newMarker(parseFloat(coord.lat), parseFloat(coord.lng)))})
     .catch(err => console.log(err))
 
 
@@ -84,6 +86,24 @@ window.onload = function() {
     // addeventlistener to sort button
     const sortBtn = document.getElementById('sort')
     sortBtn.addEventListener('click', () => sortByName())
+
+
+    const uluru = { lat: -25.344, lng: 131.036 };
+    // The map, centered at Uluru
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 4,
+      center: uluru,  
+    });
+
+
+    const newMarker = (lat, lng) => {
+      new google.maps.Marker({
+        position: {lat: lat, lng: lng},
+        map: map,
+      });
+    }
+
+
 }
 
 const extractNames = () =>  console.log(fetchedData.map(el => el.name).join(', '))
@@ -91,3 +111,20 @@ const extractNames = () =>  console.log(fetchedData.map(el => el.name).join(', '
 
 const adresses = () => fetchedData.map(el=> `${el.address.street}, ${el.address.suite}, ${el.address.city} (${el.address.zipcode})` )
 
+
+function initMap() {
+  const uluru = { lat: -25.344, lng: 131.036 };
+    // The map, centered at Uluru
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 4,
+      center: uluru,  
+    });
+
+
+    const newMarker = (lat, lng) => {
+      new google.maps.Marker({
+        position: {lat: lat, lng: lng},
+        map: map,
+      });
+    }
+}
