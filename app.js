@@ -78,7 +78,6 @@ window.onload = function() {
     const input = document.getElementById('filterInput')
     input.addEventListener('input', () => {
       const option = document.getElementById('filterOption').value
-
       filter(option, input.value)
     })
 
