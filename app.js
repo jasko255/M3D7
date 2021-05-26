@@ -7,7 +7,7 @@ let lastData
 const generateCard = (user) => { 
     const col = document.createElement('div')
     col.classList = 'col col-md-4 col-lg-3'
-    col.innerHTML = ` <div class="card mb-3" >
+    col.innerHTML = `<a href='./detail.html?id=${user.id}' target= '_blank'> <div class="card mb-3" >
     <div class="card-header">
       ${user.name}
     </div>
@@ -17,7 +17,7 @@ const generateCard = (user) => {
       <li class="list-group-item">City: ${user.address.city}</li>
       <li class="list-group-item">Site: ${user.website}</li>
     </ul>
-  </div>` 
+  </div> </a>` 
   return col.outerHTML
 }
 
